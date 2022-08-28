@@ -5,13 +5,14 @@
     "headerButtonText": "LOG IN"
   },
   "hero": {
-    "heroImageURL": "",
-    "heroCtaText": "Read More",
-    "heroDescriptionText": "We are a great coding community"
+    "heroImageURL": "/sample-logo.jpg",
+    "heroCtaText": "Get Started >",
+    "heroDescriptionText": "This is the description text. This is the description text. This is the description text. "
   },
   "textHighlight": {
-    "textHighlightContent": "This is text highlight",
-    "textHighlightBackgroundColor": "#afafaf"
+    "textHighlightContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing el.",
+    "textHighlightBackgroundColor": "#A635FF",
+    "textHighLightColor": "#fff"
   },
   "communityOwner": {
     "communityOwnerName": "Mustafa Kapadia",

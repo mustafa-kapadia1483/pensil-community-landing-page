@@ -29,6 +29,8 @@ const HeroInput = () => {
       </Grid.Col>
       <Grid.Col span={12}>
         <Textarea
+          autosize
+          minRows={3}
           placeholder="Start typing here..."
           label="Hero Description"
           id="heroDescriptionText"

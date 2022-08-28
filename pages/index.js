@@ -6,7 +6,10 @@ import {
   Anchor,
   Blockquote,
   Group,
+  Title,
+  AspectRatio,
 } from "@mantine/core";
+import Image from "next/image";
 import { useContext, useEffect } from "react";
 import { Context } from "../state/Context";
 
@@ -18,6 +21,52 @@ export default function Home() {
 
   return (
     <>
+      <Center
+        mt={18}
+        style={{
+          width: "100%",
+          flexDirection: "column",
+          // gap: 10,
+        }}
+      >
+        <Title
+          order={1}
+          mb={10}
+          weight={700}
+          style={{ maxWidth: "85%" }}
+          align="center"
+        >
+          {hero.heroDescriptionText}
+        </Title>
+        <Button variant="subtle" size="xl" mb={10}>
+          {hero.heroCtaText}
+        </Button>
+        <AspectRatio
+          ratio={1080 / 720}
+          style={{
+            width: "90%",
+            height: "60vh",
+            borderRadius: "md",
+            overflow: "none",
+          }}
+        >
+          <Image src={hero.heroImageURL} layout="fill" objectFit="cover" />
+        </AspectRatio>
+      </Center>
+      <Center
+        mt={50}
+        py={70}
+        style={{ backgroundColor: textHighlight.textHighlightBackgroundColor }}
+      >
+        <Title
+          color={textHighlight.textHighLightColor}
+          order={2}
+          align="center"
+          style={{ maxWidth: "85%" }}
+        >
+          {textHighlight.textHighlightContent}
+        </Title>
+      </Center>
       <Text>Description Text: {hero.heroDescriptionText}</Text>
       <Button>{hero.heroCtaText}</Button>
       <Center

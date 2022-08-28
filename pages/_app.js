@@ -7,6 +7,15 @@ import Layout from "../components/Layout";
 const theme = {
   fontFamily: "Montserrat, sans-serif",
   headings: { fontFamily: "Montserrat, sans-serif" },
+  components: {
+    Button: {
+      styles: (theme, params) => ({
+        root: {
+          // fontSize: 30
+        },
+      }),
+    },
+  },
 };
 
 function MyApp({ Component, pageProps }) {

@@ -57,6 +57,8 @@ const CommunityOwnerInput = () => {
             id="communityOwnerBio"
             value={communityOwner.communityOwnerBio}
             onChange={inputChangeHandler}
+            autosize
+            minRows={3}
           />
         </Grid.Col>
         <Grid.Col span={12}>

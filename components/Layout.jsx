@@ -67,6 +67,7 @@ export default function Layout({ children }) {
             theme.colorScheme === "dark"
               ? theme.colors.dark[8]
               : theme.colors.gray[0],
+          paddingInline: opened && 0,
         },
       }}
       navbarOffsetBreakpoint="sm"
@@ -105,11 +106,11 @@ export default function Layout({ children }) {
           </Navbar.Section>
         </Navbar>
       }
-      footer={
-        <Footer height={60} p="md">
-          Application footer
-        </Footer>
-      }
+      // footer={
+      //   <Footer height={60} p="md">
+      //     Application footer
+      //   </Footer>
+      // }
       header={
         <Header height={70} p="md">
           <div
