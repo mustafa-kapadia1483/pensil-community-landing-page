@@ -1,10 +1,20 @@
 import { FileInput, Grid, TextInput } from "@mantine/core";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import getUpdatedClonedPageObject from "../../helpers/getUpdatedClonedPageObject";
 import { Context } from "../../state/Context";
 
 const HeaderInput = () => {
   const { pageInformation, setPageInformation } = useContext(Context);
+  const [logoValue, setLogoValue] = useState(null);
+
+  useEffect(() => {
+    if (logoValue) {
+      pageInformation.header.communityLogo = URL.createObjectURL(logoValue);
+      const updatedPageInformation = pageInformation;
+      setPageInformation(updatedPageInformation);
+      console.log(pageInformation);
+    }
+  }, [logoValue]);
 
   const inputChangeHandler = e => {
     const { id, value } = e.target;
@@ -16,7 +26,13 @@ const HeaderInput = () => {
   return (
     <Grid>
       <Grid.Col span={6}>
-        <FileInput label="Community Logo" placeholder="Click here to pick" />
+        <FileInput
+          label="Community Logo"
+          placeholder="Click here to pick"
+          value={logoValue}
+          onChange={setLogoValue}
+        />
+        {/* {logoValue && <img src={URL.createObjectURL(logoValue)} />} */}
       </Grid.Col>
       <Grid.Col span={6}>
         <TextInput

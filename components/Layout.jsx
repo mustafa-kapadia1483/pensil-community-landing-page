@@ -57,7 +57,7 @@ const inputArray = [
 export default function Layout({ children }) {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
-  const { pageInformation, setPageInformation } = useContext(Context);
+  const { pageInformation } = useContext(Context);
 
   return (
     <AppShell

@@ -27,7 +27,7 @@ const InputList = ({ listName }) => {
               style={{ textTransform: "capitalize" }}
               icon={<Blockquote />}
             >
-              {`${listName} ${index + 1}`}
+              {`${listName.slice(0, -1)} #${index + 1}`}
             </Accordion.Control>
             <Accordion.Panel>
               {listName === "testimonials" && (
@@ -43,8 +43,9 @@ const InputList = ({ listName }) => {
           leftIcon={<Plus />}
           variant="subtle"
           onClick={createTestimonialHandler}
+          style={{ textTransform: "capitalize" }}
         >
-          Add Testimonial
+          add {listName.slice(0, -1)}
         </Button>
       </Center>
     </>
