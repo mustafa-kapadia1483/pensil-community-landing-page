@@ -93,7 +93,7 @@ export default function Layout({ children }) {
               </Group>
               <Space h="md" />
               {inputArray.map(({ name, component }) => (
-                <Accordion>
+                <Accordion key={name}>
                   <Accordion.Item value={name}>
                     <Accordion.Control style={{ textTransform: "capitalize" }}>
                       {name}

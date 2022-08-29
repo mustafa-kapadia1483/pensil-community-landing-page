@@ -50,7 +50,12 @@ export default function Home() {
             overflow: "none",
           }}
         >
-          <Image src={hero.heroImageURL} layout="fill" objectFit="cover" />
+          <Image
+            src={hero.heroImageURL}
+            layout="fill"
+            objectFit="cover"
+            alt="hero image"
+          />
         </AspectRatio>
       </Center>
       <Center
