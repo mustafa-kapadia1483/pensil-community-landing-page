@@ -1,10 +1,19 @@
 import { FileInput, Grid, Textarea, TextInput } from "@mantine/core";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import getUpdatedClonedPageObject from "../../helpers/getUpdatedClonedPageObject";
 import { Context } from "../../state/Context";
 
 const HeroInput = () => {
   const { pageInformation, setPageInformation } = useContext(Context);
+  const [heroImageValue, setHeroImageValue] = useState(null);
+
+  useEffect(() => {
+    if (heroImageValue) {
+      pageInformation.hero.heroImageURL = URL.createObjectURL(heroImageValue);
+      const updatedPageInformation = structuredClone(pageInformation);
+      setPageInformation(updatedPageInformation);
+    }
+  }, [heroImageValue]);
 
   const inputChangeHandler = e => {
     const { id, value } = e.target;
@@ -16,7 +25,12 @@ const HeroInput = () => {
   return (
     <Grid>
       <Grid.Col span={6}>
-        <FileInput label="Hero Background" placeholder="Click here to pick" />
+        <FileInput
+          label="Hero Background"
+          placeholder="Click here to pick"
+          value={heroImageValue}
+          onChange={setHeroImageValue}
+        />
       </Grid.Col>
       <Grid.Col span={6}>
         <TextInput

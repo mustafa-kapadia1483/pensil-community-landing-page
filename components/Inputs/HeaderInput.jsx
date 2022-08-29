@@ -10,9 +10,8 @@ const HeaderInput = () => {
   useEffect(() => {
     if (logoValue) {
       pageInformation.header.communityLogo = URL.createObjectURL(logoValue);
-      const updatedPageInformation = pageInformation;
+      const updatedPageInformation = structuredClone(pageInformation);
       setPageInformation(updatedPageInformation);
-      console.log(pageInformation);
     }
   }, [logoValue]);
 

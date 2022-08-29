@@ -1,5 +1,5 @@
 import { FileInput, Grid, Textarea, TextInput } from "@mantine/core";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   BrandFacebook,
   BrandInstagram,
@@ -14,6 +14,19 @@ const CommunityOwnerInput = () => {
   const { pageInformation, setPageInformation } = useContext(Context);
   const { communityOwner } = pageInformation;
   const { socialMediaLinks } = communityOwner;
+
+  const [communityOwnerImageValue, setCommunityOwnerImageValue] =
+    useState(null);
+
+  useEffect(() => {
+    if (communityOwnerImageValue) {
+      pageInformation.communityOwner.communityOwnerImage = URL.createObjectURL(
+        communityOwnerImageValue
+      );
+      const updatedPageInformation = structuredClone(pageInformation);
+      setPageInformation(updatedPageInformation);
+    }
+  }, [communityOwnerImageValue]);
 
   const inputChangeHandler = e => {
     const { id, value } = e.target;
@@ -40,7 +53,11 @@ const CommunityOwnerInput = () => {
     <>
       <Grid>
         <Grid.Col span={6}>
-          <FileInput label="Owner Image" />
+          <FileInput
+            label="Owner Image"
+            value={communityOwnerImageValue}
+            onChange={setCommunityOwnerImageValue}
+          />
         </Grid.Col>
         <Grid.Col span={6}>
           <TextInput
