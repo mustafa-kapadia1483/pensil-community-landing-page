@@ -133,7 +133,13 @@ export default function Layout({ children }) {
                 />
                 <Text>{pageInformation.header.communityName}</Text>
               </Group>
-              <Button>{pageInformation.header.headerButtonText}</Button>
+              <Button
+                radius="xl"
+                px={30}
+                style={{ backgroundColor: "#A635FF" }}
+              >
+                {pageInformation.header.headerButtonText}
+              </Button>
             </Group>
           </div>
         </Header>

@@ -6,7 +6,7 @@ import {
   Textarea,
   TextInput,
 } from "@mantine/core";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Minus } from "tabler-icons-react";
 import { Context } from "../../state/Context";
 
@@ -14,6 +14,20 @@ const TestimonialInput = ({ index }) => {
   const { pageInformation, setPageInformation } = useContext(Context);
   const { testimonials } = pageInformation;
   const testimonial = testimonials[index];
+
+  const [testimonialImageValue, setTestimonialImageValue] = useState(null);
+
+  useEffect(() => {
+    if (testimonialImageValue) {
+      testimonial.testinmonialImage = URL.createObjectURL(
+        testimonialImageValue
+      );
+      pageInformation.testimonials[index] = testimonial;
+      const updatedPageInformation = structuredClone(pageInformation);
+
+      setPageInformation(updatedPageInformation);
+    }
+  }, [testimonialImageValue]);
 
   const testimonialInputHandler = function (e) {
     const { id, value } = e.target;
@@ -62,7 +76,12 @@ const TestimonialInput = ({ index }) => {
           />
         </Grid.Col>
         <Grid.Col span={12}>
-          <FileInput label="Testimonial Image" placeholder="Pick your image" />
+          <FileInput
+            label="Testimonial Image"
+            placeholder="Pick your image"
+            value={testimonialImageValue}
+            onChange={setTestimonialImageValue}
+          />
         </Grid.Col>
       </Grid>
       <Center mt={8}>

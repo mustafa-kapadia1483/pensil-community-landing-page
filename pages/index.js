@@ -15,6 +15,8 @@ import {
   Container,
   Stack,
   Card,
+  MediaQuery,
+  Accordion,
 } from "@mantine/core";
 import { useContext } from "react";
 import {
@@ -22,6 +24,7 @@ import {
   BrandInstagram,
   BrandLinkedin,
   BrandYoutube,
+  Plus,
 } from "tabler-icons-react";
 import { Context } from "../state/Context";
 
@@ -46,7 +49,7 @@ export default function Home() {
           {hero.heroDescriptionText}
         </Title>
         <Center>
-          <Button variant="subtle" size="xl" mb={10}>
+          <Button variant="subtle" size="xl" mb={10} color="#A635FF">
             {hero.heroCtaText}
           </Button>
         </Center>
@@ -93,12 +96,25 @@ export default function Home() {
               objectFit: "cover",
             }}
           />
-          <Stack>
+          <Stack
+            sx={{
+              "@media (max-width: 780px)": {
+                textAlign: "center",
+                paddingInline: "1.25em",
+              },
+            }}
+          >
             <Title order={3}>{communityOwner.communityOwnerName}</Title>
             <Text style={{ maxWidth: "30em" }}>
               {communityOwner.communityOwnerBio}
             </Text>
-            <Group>
+            <Group
+              sx={{
+                "@media (max-width: 780px)": {
+                  justifyContent: "center",
+                },
+              }}
+            >
               <ActionIcon
                 variant="filled"
                 style={{
@@ -154,8 +170,18 @@ export default function Home() {
         </Title>
         <Grid mt={18} gutter="xl">
           {testimonials.map(
-            ({ testimonialName, testimonialCompany, testimonialContent }) => (
-              <Grid.Col span={4} key={testimonialName + testimonialCompany}>
+            ({
+              testimonialName,
+              testimonialCompany,
+              testimonialContent,
+              testinmonialImage,
+            }) => (
+              <Grid.Col
+                sm={6}
+                md={6}
+                lg={4}
+                key={testimonialName + testimonialCompany}
+              >
                 <Card
                   px={25}
                   py={25}
@@ -163,12 +189,17 @@ export default function Home() {
                   shadow="0px 0px 8px 5px rgba(0, 0, 0, 0.1)"
                 >
                   <Text>{testimonialContent}</Text>
-                  <Group position="apart">
-                    <Stack justify="flex-start">
+                  <Group position="apart" mt={18}>
+                    <Box style={{ maxWidth: "50%", wordBreak: "break-word" }}>
                       <Title order={4}>{testimonialName}</Title>
                       <Text mt={8}>{testimonialCompany}</Text>
-                    </Stack>
-                    <Avatar />
+                    </Box>
+                    <Avatar
+                      src={testinmonialImage}
+                      alt={testimonialName + " image"}
+                      radius="xl"
+                      size="lg"
+                    />
                   </Group>
                 </Card>
               </Grid.Col>
@@ -180,57 +211,35 @@ export default function Home() {
         <Title order={2} align="center">
           FAQs
         </Title>
-        {faqs.map(({ faqQuestion, faqAnswer }) => (
-          <Stack spacing="xl" mt={18} key={faqQuestion + faqAnswer}>
-            <Card
-              px={25}
-              py={25}
-              radius="25px"
-              shadow="0px 0px 8px 5px rgba(0, 0, 0, 0.1)"
+        <Accordion
+          order={2}
+          mt={25}
+          radius="lg"
+          styles={{
+            item: {
+              boxShadow: "0px 0px 8px 5px rgba(0, 0, 0, 0.1)",
+              background: "#fff",
+            },
+            label: {
+              fontWeight: "bold",
+            },
+          }}
+          variant="separated"
+          chevronPosition="left"
+          chevron={<Plus size={16} />}
+        >
+          {faqs.map(({ faqQuestion, faqAnswer }, index) => (
+            <Accordion.Item
+              mb={30}
+              key={faqQuestion}
+              value={faqQuestion + index}
             >
-              <Title order={4}>{faqQuestion}</Title>
-              <Text mt={8}>{faqAnswer}</Text>
-            </Card>
-          </Stack>
-        ))}
+              <Accordion.Control>{faqQuestion}</Accordion.Control>
+              <Accordion.Panel>{faqAnswer}</Accordion.Panel>
+            </Accordion.Item>
+          ))}
+        </Accordion>
       </Container>
-      <Text>Description Text: {hero.heroDescriptionText}</Text>
-      <Button>{hero.heroCtaText}</Button>
-      <Center
-        style={{
-          width: "100%",
-          height: 200,
-          backgroundColor: textHighlight.textHighlightBackgroundColor,
-        }}
-      >
-        <Text>{textHighlight.textHighlightContent}</Text>
-      </Center>
-      <Box>
-        <Text>Owner name: {communityOwner.communityOwnerName}</Text>
-        <Text>Owner Bio: {communityOwner.communityOwnerBio}</Text>
-        {/* {console.log(Object.keys(socialMediaLinks))} */}
-        {Object.keys(socialMediaLinks).map(socialMediaLink => (
-          <Anchor
-            style={{ display: "block" }}
-            href={socialMediaLinks[socialMediaLink]}
-            key={socialMediaLink + "id"}
-          >
-            {socialMediaLink}: {socialMediaLinks[socialMediaLink]}
-          </Anchor>
-        ))}
-        <Group>
-          {testimonials.map(
-            ({ testimonialName, testimonialCompany, testimonialContent }) => (
-              <Blockquote
-                key={testimonialName}
-                cite={`${testimonialName}, ${testimonialCompany}`}
-              >
-                {testimonialContent}
-              </Blockquote>
-            )
-          )}
-        </Group>
-      </Box>
     </>
   );
 }

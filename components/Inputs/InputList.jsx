@@ -20,9 +20,12 @@ const InputList = ({ listName }) => {
 
   return (
     <>
-      {pageInformation[listName].map((testimonial, index) => (
-        <Accordion key={testimonial.name + index} variant="contained">
-          <Accordion.Item value={`${listName}-${index}`}>
+      <Accordion variant="contained">
+        {pageInformation[listName].map((testimonial, index) => (
+          <Accordion.Item
+            key={testimonial.name + index}
+            value={`${listName}-${index}`}
+          >
             <Accordion.Control
               style={{ textTransform: "capitalize" }}
               icon={<Blockquote />}
@@ -36,8 +39,8 @@ const InputList = ({ listName }) => {
               {listName === "faqs" && <FaqInput index={index} />}
             </Accordion.Panel>
           </Accordion.Item>
-        </Accordion>
-      ))}
+        ))}
+      </Accordion>
       <Center mt={8} style={{ width: "100%" }}>
         <Button
           leftIcon={<Plus />}

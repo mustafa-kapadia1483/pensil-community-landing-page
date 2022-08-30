@@ -31,7 +31,13 @@
       "testimonialContent": "this is testimonial content",
       "testimonialName": "Test user1",
       "testimonialCompany": "company/college",
-      "testinmonialImage": "/sample-logo"
+      "testinmonialImage": "/sample-logo.jpg"
+    },
+    {
+      "testimonialContent": "this is testimonial content",
+      "testimonialName": "Test user1",
+      "testimonialCompany": "company/college",
+      "testinmonialImage": "/sample-logo.jpg"
     }
   ],
   "faqs": [
@@ -44,7 +50,7 @@
       "faqAnswer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur"
     },
     {
-      "faqQuestion": "This is a Question ?",
+      "faqQuestion": "This is a Question 2 ?",
       "faqAnswer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur"
     }
   ]
