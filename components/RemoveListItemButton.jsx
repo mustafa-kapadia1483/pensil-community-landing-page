@@ -12,7 +12,7 @@ const RemoveListItemButton = ({ listName, index }) => {
     if (pageInformation[listName].length === 1) {
       showNotification({
         color: "red",
-        title: "Cannot remove testimonial " + singularlistName,
+        title: "Can't remove " + singularlistName,
         message: "You need to have atleast one " + singularlistName,
         icon: <X />,
       });

@@ -26,6 +26,9 @@ import HeroInput from "./Inputs/HeroInput";
 import TextHighlightInput from "./Inputs/TextHighlightInput";
 import CommunityOwnerInput from "./Inputs/CommunityOwnerInput";
 import InputList from "./Inputs/InputList";
+import TestimonialInput from "./Inputs/TestimonialInput";
+import FaqInput from "./Inputs/FaqInput";
+import GroupInput from "./Inputs/GroupInput";
 
 const inputArray = [
   {
@@ -45,12 +48,18 @@ const inputArray = [
     component: <CommunityOwnerInput />,
   },
   {
+    name: "groups",
+    component: <InputList listName="groups" InputComponent={GroupInput} />,
+  },
+  {
     name: "testimonials",
-    component: <InputList listName="testimonials" />,
+    component: (
+      <InputList listName="testimonials" InputComponent={TestimonialInput} />
+    ),
   },
   {
     name: "faqs",
-    component: <InputList listName="faqs" />,
+    component: <InputList listName="faqs" InputComponent={FaqInput} />,
   },
 ];
 

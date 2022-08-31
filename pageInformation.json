@@ -26,6 +26,23 @@
     },
     "youtubeVideoLinl": "https://www.youtube.com/watch?v=7y1MaGugD1U"
   },
+  "groups": [
+    {
+      "groupThumbnail": "/sample-logo.jpg",
+      "groupName": "Group Name",
+      "groupDescription": "This is group description"
+    },
+    {
+      "groupThumbnail": "/sample-logo.jpg",
+      "groupName": "Group Name",
+      "groupDescription": "This is group description"
+    },
+    {
+      "groupThumbnail": "/sample-logo.jpg",
+      "groupName": "Group Name",
+      "groupDescription": "This is group description"
+    }
+  ],
   "testimonials": [
     {
       "testimonialContent": "this is testimonial content",

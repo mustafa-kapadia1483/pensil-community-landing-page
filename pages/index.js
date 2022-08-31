@@ -1,3 +1,4 @@
+import { Carousel } from "@mantine/carousel";
 import {
   Button,
   Center,
@@ -26,14 +27,16 @@ import {
   BrandYoutube,
   Plus,
 } from "tabler-icons-react";
+import FaqList from "../components/ui/faqs/FaqList";
+import GroupList from "../components/ui/groups/GroupList";
+import TestimonialList from "../components/ui/testimonials/TestimonialList";
 import { Context } from "../state/Context";
 
 export default function Home() {
   const { pageInformation } = useContext(Context);
-  const { hero, textHighlight, communityOwner, testimonials, faqs } =
+  const { hero, textHighlight, communityOwner, groups, testimonials, faqs } =
     pageInformation;
   const { socialMediaLinks } = communityOwner;
-  // console.log(hero);
 
   return (
     <>
@@ -80,7 +83,6 @@ export default function Home() {
           position="center"
           style={{
             borderRadius: "8px",
-            // height: "40vh",
             boxShadow: "0px 0px 8px 5px rgba(0, 0, 0, 0.1)",
             width: "100%",
           }}
@@ -164,79 +166,20 @@ export default function Home() {
           </Stack>
         </Group>
       </Container>
+      <Box mt={100} sx={{ backgroundColor: "#8F00FF" }} py={70}>
+        <GroupList groups={groups} />
+      </Box>
       <Container mt={100}>
         <Title order={2} align="center">
           Testimonials
         </Title>
-        <Grid mt={18} gutter="xl">
-          {testimonials.map(
-            (
-              {
-                testimonialName,
-                testimonialCompany,
-                testimonialContent,
-                testinmonialImage,
-              },
-              index
-            ) => (
-              <Grid.Col sm={6} md={6} lg={4} key={testimonialName + index}>
-                <Card
-                  px={25}
-                  py={25}
-                  radius="25px"
-                  shadow="0px 0px 8px 5px rgba(0, 0, 0, 0.1)"
-                >
-                  <Text>{testimonialContent}</Text>
-                  <Group position="apart" mt={18}>
-                    <Box style={{ maxWidth: "50%", wordBreak: "break-word" }}>
-                      <Title order={4}>{testimonialName}</Title>
-                      <Text mt={8}>{testimonialCompany}</Text>
-                    </Box>
-                    <Avatar
-                      src={testinmonialImage}
-                      alt={testimonialName + " image"}
-                      radius="xl"
-                      size="lg"
-                    />
-                  </Group>
-                </Card>
-              </Grid.Col>
-            )
-          )}
-        </Grid>
+        <TestimonialList testimonials={testimonials} />
       </Container>
       <Container mt={100}>
         <Title order={2} align="center">
           FAQs
         </Title>
-        <Accordion
-          order={2}
-          mt={25}
-          radius="lg"
-          styles={{
-            item: {
-              boxShadow: "0px 0px 8px 5px rgba(0, 0, 0, 0.1)",
-              background: "#fff",
-            },
-            label: {
-              fontWeight: "bold",
-            },
-          }}
-          variant="separated"
-          chevronPosition="left"
-          chevron={<Plus size={16} />}
-        >
-          {faqs.map(({ faqQuestion, faqAnswer }, index) => (
-            <Accordion.Item
-              mb={30}
-              key={faqQuestion + index}
-              value={"faqs" + index}
-            >
-              <Accordion.Control>{faqQuestion}</Accordion.Control>
-              <Accordion.Panel>{faqAnswer}</Accordion.Panel>
-            </Accordion.Item>
-          ))}
-        </Accordion>
+        <FaqList faqs={faqs} />
       </Container>
     </>
   );

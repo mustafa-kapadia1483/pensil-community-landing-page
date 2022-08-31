@@ -2,10 +2,8 @@ import { Accordion, Button, Center } from "@mantine/core";
 import { useContext } from "react";
 import { Blockquote, Plus } from "tabler-icons-react";
 import { Context } from "../../state/Context";
-import FaqInput from "./FaqInput";
-import TestimonialInput from "./TestimonialInput";
 
-const InputList = ({ listName }) => {
+const InputList = ({ listName, InputComponent }) => {
   const { pageInformation, setPageInformation } = useContext(Context);
 
   const createTestimonialHandler = function () {
@@ -18,7 +16,7 @@ const InputList = ({ listName }) => {
   return (
     <>
       <Accordion variant="contained">
-        {pageInformation[listName].map((testimonial, index) => (
+        {pageInformation[listName].map((listItem, index) => (
           <Accordion.Item
             key={listName + "input" + index}
             value={`${listName}-${index}`}
@@ -30,10 +28,7 @@ const InputList = ({ listName }) => {
               {`${listName.slice(0, -1)} #${index + 1}`}
             </Accordion.Control>
             <Accordion.Panel>
-              {listName === "testimonials" && (
-                <TestimonialInput index={index} />
-              )}
-              {listName === "faqs" && <FaqInput index={index} />}
+              <InputComponent index={index} />
             </Accordion.Panel>
           </Accordion.Item>
         ))}
