@@ -9,6 +9,7 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { Minus } from "tabler-icons-react";
 import { Context } from "../../state/Context";
+import RemoveListItemButton from "../RemoveListItemButton";
 
 const TestimonialInput = ({ index }) => {
   const { pageInformation, setPageInformation } = useContext(Context);
@@ -33,16 +34,8 @@ const TestimonialInput = ({ index }) => {
     const { id, value } = e.target;
     testimonial[id] = value;
 
+    pageInformation.testimonials[index] = testimonial;
     const updatedPageInformation = structuredClone(pageInformation);
-    updatedPageInformation.testimonials[index] = testimonial;
-
-    setPageInformation(updatedPageInformation);
-  };
-
-  const removeTestimonialHandler = function () {
-    const updatedPageInformation = structuredClone(pageInformation);
-    testimonials.pop();
-    updatedPageInformation.testimonials = testimonials;
 
     setPageInformation(updatedPageInformation);
   };
@@ -55,7 +48,7 @@ const TestimonialInput = ({ index }) => {
             label="Name"
             id="testimonialName"
             value={testimonial.testimonialName}
-            onChange={testimonialInputHandler}
+            onChange={testimonialInputHandler || ""}
           />
         </Grid.Col>
         <Grid.Col span={6}>
@@ -63,7 +56,7 @@ const TestimonialInput = ({ index }) => {
             label="College / Company"
             id="testimonialCompany"
             value={testimonial.testimonialCompany}
-            onChange={testimonialInputHandler}
+            onChange={testimonialInputHandler || ""}
           />
         </Grid.Col>
         <Grid.Col span={12}>
@@ -71,7 +64,7 @@ const TestimonialInput = ({ index }) => {
             placeholder="Start typing here..."
             label="Testimonial"
             id="testimonialContent"
-            value={testimonial.testimonialContent}
+            value={testimonial.testimonialContent || ""}
             onChange={testimonialInputHandler}
           />
         </Grid.Col>
@@ -79,21 +72,13 @@ const TestimonialInput = ({ index }) => {
           <FileInput
             label="Testimonial Image"
             placeholder="Pick your image"
-            value={testimonialImageValue}
+            value={testimonialImageValue || null}
             onChange={setTestimonialImageValue}
           />
         </Grid.Col>
       </Grid>
       <Center mt={8}>
-        <Button
-          size="xs"
-          variant="subtle"
-          color="red"
-          leftIcon={<Minus />}
-          onClick={removeTestimonialHandler}
-        >
-          Remove Testimonial
-        </Button>
+        <RemoveListItemButton listName="testimonials" index={index} />
       </Center>
     </>
   );

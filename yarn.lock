@@ -276,12 +276,12 @@
     "@mantine/ssr" "5.2.3"
     "@mantine/styles" "5.2.3"
 
-"@mantine/notifications@^5.2.3":
-  "integrity" "sha512-zhk6slPnWYurK1E26kOJJDJBouanBkgR3uAvyLFtTdUk1T/9p9i1wPVrexNQ2/74W78IgcsUaJW1XvGO4cgVpg=="
-  "resolved" "https://registry.npmjs.org/@mantine/notifications/-/notifications-5.2.3.tgz"
-  "version" "5.2.3"
+"@mantine/notifications@^5.2.4":
+  "integrity" "sha512-N/UZ8KXMIz+wMWSLFe0JwPFFfg8gHmVgU6KX3DUOsUP6QEJF2RVM6zEQ7CawhVueBvxlxjiWJ17TirI7G372GQ=="
+  "resolved" "https://registry.npmjs.org/@mantine/notifications/-/notifications-5.2.4.tgz"
+  "version" "5.2.4"
   dependencies:
-    "@mantine/utils" "5.2.3"
+    "@mantine/utils" "5.2.4"
     "react-transition-group" "4.4.2"
 
 "@mantine/rte@^5.2.3":
@@ -313,6 +313,11 @@
   "integrity" "sha512-5JOKj8UHaqZmJeciDWQXlbJCNYGKzUrKONMT1kmttbxB6PmGFN8Vy/kTQoSEe09g05S8E79/xLCYGGL8s1N5Yg=="
   "resolved" "https://registry.npmjs.org/@mantine/utils/-/utils-5.2.3.tgz"
   "version" "5.2.3"
+
+"@mantine/utils@5.2.4":
+  "integrity" "sha512-U+3+OpGRb7GbmhLUZcWhGvZelaMJ42MW88bZXH3Cej5VpLRdx3UgLTP6EhbQBIFGTW7S53Xq7K7eCx2xdUFfhg=="
+  "resolved" "https://registry.npmjs.org/@mantine/utils/-/utils-5.2.4.tgz"
+  "version" "5.2.4"
 
 "@next/env@12.2.5":
   "integrity" "sha512-vLPLV3cpPGjUPT3PjgRj7e3nio9t6USkuew3JE/jMeon/9Mvp1WyR18v3iwnCuX7eUAm1HmAbJHHLAbcu/EJcw=="

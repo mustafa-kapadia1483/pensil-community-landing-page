@@ -3,6 +3,7 @@ import "@fontsource/montserrat";
 
 import { ContextProvider } from "../state/Context";
 import Layout from "../components/Layout";
+import { NotificationsProvider } from "@mantine/notifications";
 
 const theme = {
   fontFamily: "Montserrat, sans-serif",
@@ -15,17 +16,33 @@ const theme = {
         },
       }),
     },
+    Text: {
+      styles: {
+        root: {
+          wordBreak: "break-word",
+        },
+      },
+    },
+    Title: {
+      styles: {
+        root: {
+          wordBreak: "break-word",
+        },
+      },
+    },
   },
 };
 
 function MyApp({ Component, pageProps }) {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-      <ContextProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ContextProvider>
+      <NotificationsProvider>
+        <ContextProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ContextProvider>
+      </NotificationsProvider>
     </MantineProvider>
   );
 }

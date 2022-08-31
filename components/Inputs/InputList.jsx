@@ -9,10 +9,7 @@ const InputList = ({ listName }) => {
   const { pageInformation, setPageInformation } = useContext(Context);
 
   const createTestimonialHandler = function () {
-    const newList = pageInformation[listName];
-    newList.push(newList[newList.length - 1]);
-
-    pageInformation[listName] = newList;
+    pageInformation[listName].push({});
     const updatedPageInformation = structuredClone(pageInformation);
 
     setPageInformation(updatedPageInformation);
@@ -23,7 +20,7 @@ const InputList = ({ listName }) => {
       <Accordion variant="contained">
         {pageInformation[listName].map((testimonial, index) => (
           <Accordion.Item
-            key={testimonial.name + index}
+            key={listName + "input" + index}
             value={`${listName}-${index}`}
           >
             <Accordion.Control

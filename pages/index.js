@@ -170,18 +170,16 @@ export default function Home() {
         </Title>
         <Grid mt={18} gutter="xl">
           {testimonials.map(
-            ({
-              testimonialName,
-              testimonialCompany,
-              testimonialContent,
-              testinmonialImage,
-            }) => (
-              <Grid.Col
-                sm={6}
-                md={6}
-                lg={4}
-                key={testimonialName + testimonialCompany}
-              >
+            (
+              {
+                testimonialName,
+                testimonialCompany,
+                testimonialContent,
+                testinmonialImage,
+              },
+              index
+            ) => (
+              <Grid.Col sm={6} md={6} lg={4} key={testimonialName + index}>
                 <Card
                   px={25}
                   py={25}
@@ -231,8 +229,8 @@ export default function Home() {
           {faqs.map(({ faqQuestion, faqAnswer }, index) => (
             <Accordion.Item
               mb={30}
-              key={faqQuestion}
-              value={faqQuestion + index}
+              key={faqQuestion + index}
+              value={"faqs" + index}
             >
               <Accordion.Control>{faqQuestion}</Accordion.Control>
               <Accordion.Panel>{faqAnswer}</Accordion.Panel>
