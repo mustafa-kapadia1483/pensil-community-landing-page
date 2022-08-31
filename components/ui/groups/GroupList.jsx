@@ -1,12 +1,20 @@
-import { Card, Image, Text } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
+import { useMediaQuery } from "@mantine/hooks";
 import GroupCard from "./GroupCard";
 
 const GroupList = ({ groups }) => {
+  const matches = useMediaQuery("(max-width: 700px)", true, {
+    getInitialValueInEffect: false,
+  });
+
   return (
     <Carousel
       slideSize="33.333333%"
-      slidesToScroll={2}
+      breakpoints={[
+        { maxWidth: "md", slideSize: "50%" },
+        { maxWidth: "sm", slideSize: "70%" },
+      ]}
+      slidesToScroll={matches ? 1 : 2}
       align="center"
       slideGap="md"
     >

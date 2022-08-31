@@ -1,15 +1,45 @@
-import { Card, Image, Text } from "@mantine/core";
+import {
+  Badge,
+  Box,
+  Button,
+  Card,
+  Group,
+  Image,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from "@mantine/core";
+import { Plus, Users } from "tabler-icons-react";
 
 const GroupCard = ({
   group: { groupName, groupThumbnail, groupDescription },
 }) => {
+  const badgeIcon = (
+    <ThemeIcon variant="light">
+      <Users size={12} />
+    </ThemeIcon>
+  );
+
   return (
     <Card radius="lg">
       <Card.Section>
         <Image height={160} src={groupThumbnail} alt={groupName + "image"} />
       </Card.Section>
-      <Text mt={16}>{groupName}</Text>
+      <Title order={4} mt={16}>
+        {groupName}
+      </Title>
       <Text>{groupDescription}</Text>
+      <Group position="apart" mt={32}>
+        <Stack justify="center">
+          <Badge variant="light" leftSection={badgeIcon}>
+            5
+          </Badge>
+        </Stack>
+        <Button radius="lg" size="xs" rightIcon={<Plus size={12} />}>
+          Join
+        </Button>
+      </Group>
     </Card>
   );
 };

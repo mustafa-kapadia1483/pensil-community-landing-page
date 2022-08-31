@@ -1,31 +1,22 @@
-import { Carousel } from "@mantine/carousel";
 import {
   Button,
   Center,
   Text,
   Box,
-  Anchor,
-  Blockquote,
   Group,
   Title,
-  AspectRatio,
   Image,
-  Grid,
-  Avatar,
   ActionIcon,
   Container,
   Stack,
-  Card,
-  MediaQuery,
-  Accordion,
 } from "@mantine/core";
+import Head from "next/head";
 import { useContext } from "react";
 import {
   BrandFacebook,
   BrandInstagram,
   BrandLinkedin,
   BrandYoutube,
-  Plus,
 } from "tabler-icons-react";
 import FaqList from "../components/ui/faqs/FaqList";
 import GroupList from "../components/ui/groups/GroupList";
@@ -40,6 +31,14 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Pensil Community Landing Page Templage</title>
+        <link
+          rel="shortcut icon"
+          href={pageInformation.header.communityLogo}
+          type="image/png"
+        />
+      </Head>
       <Container mt={18}>
         <Title
           order={1}
