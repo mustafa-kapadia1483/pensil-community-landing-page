@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Blockquote, Plus } from "tabler-icons-react";
 import { Context } from "../../state/Context";
 
-const InputList = ({ listName, InputComponent }) => {
+const InputList = ({ listName, InputComponent, IconComponent }) => {
   const { pageInformation, setPageInformation } = useContext(Context);
 
   const createTestimonialHandler = function () {
@@ -23,7 +23,7 @@ const InputList = ({ listName, InputComponent }) => {
           >
             <Accordion.Control
               style={{ textTransform: "capitalize" }}
-              icon={<Blockquote />}
+              icon={<IconComponent size={16} />}
             >
               {`${listName.slice(0, -1)} #${index + 1}`}
             </Accordion.Control>

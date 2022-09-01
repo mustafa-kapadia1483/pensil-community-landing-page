@@ -3,7 +3,6 @@ import {
   AppShell,
   Navbar,
   Header,
-  Footer,
   Text,
   MediaQuery,
   Burger,
@@ -12,13 +11,17 @@ import {
   Avatar,
   Button,
   ActionIcon,
-  Center,
   Space,
   ScrollArea,
   Box,
   Accordion,
 } from "@mantine/core";
-import { ChevronLeft } from "tabler-icons-react";
+import {
+  ChevronLeft,
+  Users,
+  ZoomQuestion,
+  Blockquote,
+} from "tabler-icons-react";
 
 import { Context } from "../state/Context";
 import HeaderInput from "./Inputs/HeaderInput";
@@ -49,17 +52,33 @@ const inputArray = [
   },
   {
     name: "groups",
-    component: <InputList listName="groups" InputComponent={GroupInput} />,
+    component: (
+      <InputList
+        listName="groups"
+        InputComponent={GroupInput}
+        IconComponent={Users}
+      />
+    ),
   },
   {
     name: "testimonials",
     component: (
-      <InputList listName="testimonials" InputComponent={TestimonialInput} />
+      <InputList
+        listName="testimonials"
+        InputComponent={TestimonialInput}
+        IconComponent={Blockquote}
+      />
     ),
   },
   {
     name: "faqs",
-    component: <InputList listName="faqs" InputComponent={FaqInput} />,
+    component: (
+      <InputList
+        listName="faqs"
+        InputComponent={FaqInput}
+        IconComponent={ZoomQuestion}
+      />
+    ),
   },
 ];
 
