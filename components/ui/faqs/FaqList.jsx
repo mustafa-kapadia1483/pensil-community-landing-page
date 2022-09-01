@@ -1,4 +1,4 @@
-import { Accordion } from "@mantine/core";
+import { Accordion, Text } from "@mantine/core";
 import { Plus } from "tabler-icons-react";
 
 const FaqList = ({ faqs }) => {
@@ -27,7 +27,9 @@ const FaqList = ({ faqs }) => {
           value={"faqs" + index}
         >
           <Accordion.Control>{faqQuestion}</Accordion.Control>
-          <Accordion.Panel>{faqAnswer}</Accordion.Panel>
+          <Accordion.Panel>
+            <Text sx={{ textIndent: 32 }}>{faqAnswer}</Text>
+          </Accordion.Panel>
         </Accordion.Item>
       ))}
     </Accordion>

@@ -17,6 +17,7 @@ const GroupList = ({ groups }) => {
       slidesToScroll={matches ? 1 : 2}
       align="center"
       slideGap="md"
+      dragFree
     >
       {groups.map((group, index) => (
         <Carousel.Slide key={"group-carousel-slide" + index}>

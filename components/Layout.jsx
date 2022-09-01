@@ -115,7 +115,7 @@ export default function Layout({ children }) {
             <Box style={{ width: "95%" }}>
               <Group position="apart">
                 <Text>Landing Page Settings:</Text>
-                <ActionIcon>
+                <ActionIcon onClick={() => setOpened(false)}>
                   <ChevronLeft size={18} />
                 </ActionIcon>
               </Group>

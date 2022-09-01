@@ -1,5 +1,8 @@
 import { MantineProvider } from "@mantine/core";
-import "@fontsource/montserrat";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/500.css";
+import "@fontsource/montserrat/700.css";
+import "@fontsource/montserrat/800.css";
 
 import { ContextProvider } from "../state/Context";
 import Layout from "../components/Layout";
@@ -36,7 +39,7 @@ const theme = {
 function MyApp({ Component, pageProps }) {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-      <NotificationsProvider>
+      <NotificationsProvider position="top-center">
         <ContextProvider>
           <Layout>
             <Component {...pageProps} />

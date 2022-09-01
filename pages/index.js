@@ -165,21 +165,30 @@ export default function Home() {
           </Stack>
         </Group>
       </Container>
-      <Box mt={100} sx={{ backgroundColor: "#8F00FF" }} py={70}>
-        <GroupList groups={groups} />
-      </Box>
-      <Container mt={100}>
-        <Title order={2} align="center">
-          Testimonials
-        </Title>
-        <TestimonialList testimonials={testimonials} />
-      </Container>
-      <Container mt={100}>
-        <Title order={2} align="center">
-          FAQs
-        </Title>
-        <FaqList faqs={faqs} />
-      </Container>
+      {groups.length > 0 && (
+        <Box mt={100} sx={{ backgroundColor: "#8F00FF" }} pt={50} pb={86}>
+          <Title color="white" align="center" mb={36}>
+            Groups
+          </Title>
+          <GroupList groups={groups} />
+        </Box>
+      )}
+      {testimonials.length > 0 && (
+        <Container mt={100}>
+          <Title order={2} align="center">
+            Testimonials
+          </Title>
+          <TestimonialList testimonials={testimonials} />
+        </Container>
+      )}
+      {faqs.length > 0 && (
+        <Container mt={100}>
+          <Title order={2} align="center">
+            FAQs
+          </Title>
+          <FaqList faqs={faqs} />
+        </Container>
+      )}
     </>
   );
 }

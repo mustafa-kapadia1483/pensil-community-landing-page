@@ -2,16 +2,10 @@ import { Accordion, Button, Center } from "@mantine/core";
 import { useContext } from "react";
 import { Blockquote, Plus } from "tabler-icons-react";
 import { Context } from "../../state/Context";
+import AddListItemButton from "../AddListItemButton";
 
 const InputList = ({ listName, InputComponent, IconComponent }) => {
-  const { pageInformation, setPageInformation } = useContext(Context);
-
-  const createTestimonialHandler = function () {
-    pageInformation[listName].push({});
-    const updatedPageInformation = structuredClone(pageInformation);
-
-    setPageInformation(updatedPageInformation);
-  };
+  const { pageInformation } = useContext(Context);
 
   return (
     <>
@@ -34,14 +28,7 @@ const InputList = ({ listName, InputComponent, IconComponent }) => {
         ))}
       </Accordion>
       <Center mt={8} style={{ width: "100%" }}>
-        <Button
-          leftIcon={<Plus />}
-          variant="subtle"
-          onClick={createTestimonialHandler}
-          style={{ textTransform: "capitalize" }}
-        >
-          add {listName.slice(0, -1)}
-        </Button>
+        <AddListItemButton listName={listName} />
       </Center>
     </>
   );
