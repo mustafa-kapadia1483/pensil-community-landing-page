@@ -21,6 +21,8 @@ import {
   Users,
   ZoomQuestion,
   Blockquote,
+  Eye,
+  BrowserCheck,
 } from "tabler-icons-react";
 
 import { Context } from "../state/Context";
@@ -32,6 +34,7 @@ import InputList from "./Inputs/InputList";
 import TestimonialInput from "./Inputs/TestimonialInput";
 import FaqInput from "./Inputs/FaqInput";
 import GroupInput from "./Inputs/GroupInput";
+import { showNotification } from "@mantine/notifications";
 
 const inputArray = [
   {
@@ -85,7 +88,23 @@ const inputArray = [
 export default function Layout({ children }) {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
+  const [preview, setPreview] = useState(false);
   const { pageInformation } = useContext(Context);
+
+  const previewHandler = function () {
+    setPreview(!preview);
+    setOpened(!opened);
+    showNotification({
+      title: "Preview Mode",
+      message: "Currently in preview mode, click X to exit",
+      onClose: () => {
+        setPreview(false);
+        setOpened(false);
+      },
+      icon: <Eye />,
+      autoClose: false,
+    });
+  };
 
   return (
     <AppShell
@@ -98,13 +117,13 @@ export default function Layout({ children }) {
           paddingInline: opened && 0,
         },
       }}
-      navbarOffsetBreakpoint="sm"
-      asideOffsetBreakpoint="sm"
+      navbarOffsetBreakpoint="xl"
+      asideOffsetBreakpoint="xl"
       navbar={
         <Navbar
           p="md"
-          hiddenBreakpoint="sm"
-          hidden={!opened}
+          hiddenBreakpoint="xl"
+          hidden={opened}
           width={{ sm: 200, lg: 400 }}
         >
           <Navbar.Section
@@ -115,9 +134,6 @@ export default function Layout({ children }) {
             <Box style={{ width: "95%" }}>
               <Group position="apart">
                 <Text>Landing Page Settings:</Text>
-                <ActionIcon onClick={() => setOpened(false)}>
-                  <ChevronLeft size={18} />
-                </ActionIcon>
               </Group>
               <Space h="md" />
               {inputArray.map(({ name, component }) => (
@@ -131,6 +147,22 @@ export default function Layout({ children }) {
                 </Accordion>
               ))}
             </Box>
+            <Group position="center" mt={16}>
+              <Button leftIcon={<Eye size={20} />} onClick={previewHandler}>
+                Preview
+              </Button>
+              <Button
+                styles={{
+                  root: {
+                    backgroundColor: theme.colors.green[7],
+                    "&:hover": { backgroundColor: theme.colors.green[9] },
+                  },
+                }}
+                leftIcon={<BrowserCheck size={20} />}
+              >
+                Save
+              </Button>
+            </Group>
           </Navbar.Section>
         </Navbar>
       }
@@ -144,15 +176,17 @@ export default function Layout({ children }) {
           <div
             style={{ display: "flex", alignItems: "center", height: "100%" }}
           >
-            <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+            {/* <MediaQuery largerThan="sm" styles={{ display: "none" }}> */}
+            {!preview && (
               <Burger
-                opened={opened}
+                opened={!opened}
                 onClick={() => setOpened(() => !opened)}
                 size="sm"
                 color={theme.colors.gray[6]}
                 mr="xl"
               />
-            </MediaQuery>
+            )}
+            {/* </MediaQuery> */}
             <Group style={{ width: "100%" }} position="apart">
               <Group>
                 <Avatar
