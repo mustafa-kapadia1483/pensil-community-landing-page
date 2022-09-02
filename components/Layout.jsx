@@ -117,8 +117,7 @@ export default function Layout({ children }) {
           paddingInline: opened && 0,
         },
       }}
-      navbarOffsetBreakpoint="xl"
-      asideOffsetBreakpoint="xl"
+      // navbarOffsetBreakpoint="xl"
       navbar={
         <Navbar
           p="md"
