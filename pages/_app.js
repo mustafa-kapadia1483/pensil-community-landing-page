@@ -39,7 +39,7 @@ const theme = {
 function MyApp({ Component, pageProps }) {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-      <NotificationsProvider position="top-center">
+      <NotificationsProvider>
         <ContextProvider>
           <Layout>
             <Component {...pageProps} />

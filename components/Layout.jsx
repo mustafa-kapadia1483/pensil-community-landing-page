@@ -94,6 +94,7 @@ export default function Layout({ children }) {
   const previewHandler = function () {
     setPreview(!preview);
     setOpened(!opened);
+
     showNotification({
       title: "Preview Mode",
       message: "Currently in preview mode, click X to exit",
@@ -103,6 +104,22 @@ export default function Layout({ children }) {
       },
       icon: <Eye />,
       autoClose: false,
+    });
+  };
+
+  const saveButtonHandler = function () {
+    setPreview(!preview);
+    setOpened(!opened);
+
+    showNotification({
+      title: "Your changes have been saved",
+      message:
+        "You won't be able to make changes to the page now, refresh the page to get editor again",
+      styles: {
+        root: {
+          "&::before": { backgroundColor: theme.colors.green[7] },
+        },
+      },
     });
   };
 
@@ -117,7 +134,6 @@ export default function Layout({ children }) {
           paddingInline: opened && 0,
         },
       }}
-      // navbarOffsetBreakpoint="xl"
       navbar={
         <Navbar
           p="md"
@@ -157,6 +173,7 @@ export default function Layout({ children }) {
                     "&:hover": { backgroundColor: theme.colors.green[9] },
                   },
                 }}
+                onClick={saveButtonHandler}
                 leftIcon={<BrowserCheck size={20} />}
               >
                 Save
@@ -175,7 +192,6 @@ export default function Layout({ children }) {
           <div
             style={{ display: "flex", alignItems: "center", height: "100%" }}
           >
-            {/* <MediaQuery largerThan="sm" styles={{ display: "none" }}> */}
             {!preview && (
               <Burger
                 opened={!opened}
@@ -185,7 +201,6 @@ export default function Layout({ children }) {
                 mr="xl"
               />
             )}
-            {/* </MediaQuery> */}
             <Group style={{ width: "100%" }} position="apart">
               <Group>
                 <Avatar

@@ -9,7 +9,7 @@ const GroupList = ({ groups }) => {
 
   return (
     <Carousel
-      slideSize="33.333333%"
+      slideSize={320}
       breakpoints={[
         { maxWidth: "md", slideSize: "50%" },
         { maxWidth: "sm", slideSize: "70%" },

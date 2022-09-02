@@ -41,6 +41,11 @@
       "groupThumbnail": "/sample-logo.jpg",
       "groupName": "Group Name",
       "groupDescription": "This is group description"
+    },
+    {
+      "groupThumbnail": "/sample-logo.jpg",
+      "groupName": "Group Name",
+      "groupDescription": "This is group description"
     }
   ],
   "testimonials": [
