@@ -15,6 +15,11 @@ const FaqList = ({ faqs }) => {
         label: {
           fontWeight: "bold",
         },
+        chevron: {
+          "&[data-rotate]": {
+            transform: "rotate(45deg)",
+          },
+        },
       }}
       variant="separated"
       chevronPosition="left"
@@ -28,7 +33,7 @@ const FaqList = ({ faqs }) => {
         >
           <Accordion.Control>{faqQuestion}</Accordion.Control>
           <Accordion.Panel>
-            <Text sx={{ textIndent: 32 }}>{faqAnswer}</Text>
+            <Text ml={32}>{faqAnswer}</Text>
           </Accordion.Panel>
         </Accordion.Item>
       ))}

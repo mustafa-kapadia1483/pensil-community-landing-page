@@ -51,15 +51,27 @@
   "testimonials": [
     {
       "testimonialContent": "this is testimonial content",
-      "testimonialName": "Test user1",
+      "testimonialName": "Erika Morales",
       "testimonialCompany": "company/college",
-      "testinmonialImage": "/sample-logo.jpg"
+      "testinmonialImage": "https://randomuser.me/api/portraits/women/63.jpg"
     },
     {
       "testimonialContent": "this is testimonial content",
-      "testimonialName": "Test user1",
+      "testimonialName": "Patrick Myers",
       "testimonialCompany": "company/college",
-      "testinmonialImage": "/sample-logo.jpg"
+      "testinmonialImage": "https://randomuser.me/api/portraits/men/41.jpg"
+    },
+    {
+      "testimonialContent": "this is testimonial content",
+      "testimonialName": "Randall Hunt",
+      "testimonialCompany": "company/college",
+      "testinmonialImage": "https://randomuser.me/api/portraits/men/81.jpg"
+    },
+    {
+      "testimonialContent": "this is testimonial content",
+      "testimonialName": "Joyce Lowe",
+      "testimonialCompany": "company/college",
+      "testinmonialImage": "https://randomuser.me/api/portraits/women/45.jpg"
     }
   ],
   "faqs": [
