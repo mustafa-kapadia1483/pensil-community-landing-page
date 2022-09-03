@@ -137,7 +137,7 @@ export default function Layout({ children }) {
       navbar={
         <Navbar
           p="md"
-          hiddenBreakpoint="xl"
+          hiddenBreakpoint="xxl"
           hidden={opened}
           width={{ sm: 200, lg: 400 }}
         >

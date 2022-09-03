@@ -12,6 +12,14 @@ import { NotificationsProvider } from "@mantine/notifications";
 const theme = {
   fontFamily: "Montserrat, sans-serif",
   headings: { fontFamily: "Montserrat, sans-serif" },
+  breakpoints: {
+    xs: 500,
+    sm: 800,
+    md: 1000,
+    lg: 1200,
+    xl: 1400,
+    xxl: 4000,
+  },
   components: {
     Button: {
       styles: (theme, params) => ({
