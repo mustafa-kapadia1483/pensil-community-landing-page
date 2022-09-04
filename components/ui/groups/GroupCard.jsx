@@ -16,7 +16,7 @@ const GroupCard = ({
   group: { groupName, groupThumbnail, groupDescription },
 }) => {
   const badgeIcon = (
-    <ThemeIcon variant="light">
+    <ThemeIcon variant="light" sx={{ backgroundColor: "transparent" }}>
       <Users size={12} />
     </ThemeIcon>
   );

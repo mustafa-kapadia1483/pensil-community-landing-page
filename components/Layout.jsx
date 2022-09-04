@@ -4,7 +4,6 @@ import {
   Navbar,
   Header,
   Text,
-  MediaQuery,
   Burger,
   useMantineTheme,
   Group,
@@ -15,6 +14,7 @@ import {
   ScrollArea,
   Box,
   Accordion,
+  useMantineColorScheme,
 } from "@mantine/core";
 import {
   ChevronLeft,
@@ -23,6 +23,8 @@ import {
   Blockquote,
   Eye,
   BrowserCheck,
+  MoonStars,
+  Sun,
 } from "tabler-icons-react";
 
 import { Context } from "../state/Context";
@@ -90,6 +92,8 @@ export default function Layout({ children }) {
   const [opened, setOpened] = useState(false);
   const [preview, setPreview] = useState(false);
   const { pageInformation } = useContext(Context);
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
 
   const previewHandler = function () {
     setPreview(!preview);
@@ -149,6 +153,14 @@ export default function Layout({ children }) {
             <Box style={{ width: "95%" }}>
               <Group position="apart">
                 <Text>Landing Page Settings:</Text>
+                <ActionIcon
+                  variant="outline"
+                  color={dark ? "yellow" : "blue"}
+                  onClick={() => toggleColorScheme()}
+                  title="Toggle color scheme"
+                >
+                  {dark ? <Sun size={18} /> : <MoonStars size={18} />}
+                </ActionIcon>
               </Group>
               <Space h="md" />
               {inputArray.map(({ name, component }) => (

@@ -10,6 +10,20 @@ import {
 } from "@mantine/core";
 import { Quote } from "tabler-icons-react";
 
+const TestimonialQuoteIcon = ({ rotate }) => (
+  <ThemeIcon
+    sx={theme => ({
+      background: "none",
+      transform: rotate && "rotate(180deg)",
+      color: theme.colorScheme === "dark" && "#FFFFFF",
+    })}
+    variant="light"
+    size={15}
+  >
+    <Quote />
+  </ThemeIcon>
+);
+
 const TestimonialCard = ({
   testimonial: {
     testimonialName,
@@ -30,17 +44,9 @@ const TestimonialCard = ({
     >
       <Stack sx={{ height: "100%" }} justify="space-between">
         <Text>
-          <ThemeIcon
-            sx={{ background: "none", transform: "rotate(180deg)" }}
-            variant="light"
-            size={15}
-          >
-            <Quote />
-          </ThemeIcon>
+          <TestimonialQuoteIcon rotate />
           {testimonialContent}
-          <ThemeIcon sx={{ background: "none" }} size={15} variant="light">
-            <Quote />
-          </ThemeIcon>
+          <TestimonialQuoteIcon />
         </Text>
         <Group position="apart" mt={18}>
           <Box style={{ maxWidth: "70%", wordBreak: "break-word" }}>

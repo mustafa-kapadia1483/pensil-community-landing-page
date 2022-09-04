@@ -1,4 +1,5 @@
 import { Accordion, Text } from "@mantine/core";
+import { useColorScheme } from "@mantine/hooks";
 import { Plus } from "tabler-icons-react";
 
 const FaqList = ({ faqs }) => {
@@ -7,10 +8,10 @@ const FaqList = ({ faqs }) => {
       order={2}
       mt={25}
       radius="lg"
-      styles={{
+      styles={theme => ({
         item: {
           boxShadow: "0px 0px 8px 5px rgba(0, 0, 0, 0.1)",
-          background: "#fff",
+          background: theme.colorScheme === "dark" ? "#1e1e1e" : "#fff",
         },
         label: {
           fontWeight: "bold",
@@ -20,7 +21,7 @@ const FaqList = ({ faqs }) => {
             transform: "rotate(45deg)",
           },
         },
-      }}
+      })}
       variant="separated"
       chevronPosition="left"
       chevron={<Plus size={16} />}
