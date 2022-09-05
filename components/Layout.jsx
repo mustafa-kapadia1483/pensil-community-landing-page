@@ -25,6 +25,7 @@ import {
   BrowserCheck,
   MoonStars,
   Sun,
+  LetterCase,
 } from "tabler-icons-react";
 
 import { Context } from "../state/Context";
@@ -37,6 +38,7 @@ import TestimonialInput from "./Inputs/TestimonialInput";
 import FaqInput from "./Inputs/FaqInput";
 import GroupInput from "./Inputs/GroupInput";
 import { showNotification } from "@mantine/notifications";
+import CommunityDescriptionInput from "./Inputs/CommunityDescriptionInput";
 
 const inputArray = [
   {
@@ -50,6 +52,16 @@ const inputArray = [
   {
     name: "text highlight",
     component: <TextHighlightInput />,
+  },
+  {
+    name: "community descriptions",
+    component: (
+      <InputList
+        listName="community Descriptions"
+        InputComponent={CommunityDescriptionInput}
+        IconComponent={LetterCase}
+      />
+    ),
   },
   {
     name: "community owner",

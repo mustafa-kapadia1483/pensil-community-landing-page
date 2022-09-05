@@ -40,7 +40,7 @@ const TestimonialCard = ({
         height: "100%",
       }}
       radius="25px"
-      shadow="0px 0px 8px 5px rgba(0, 0, 0, 0.1)"
+      shadow="sm"
     >
       <Stack sx={{ height: "100%" }} justify="space-between">
         <Text>

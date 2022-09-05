@@ -18,6 +18,7 @@ import {
   BrandLinkedin,
   BrandYoutube,
 } from "tabler-icons-react";
+import CommunityDescriptionsList from "../components/ui/communityDescriptions/CommunityDescriptionsList";
 import FaqList from "../components/ui/faqs/FaqList";
 import GroupList from "../components/ui/groups/GroupList";
 import TestimonialList from "../components/ui/testimonials/TestimonialList";
@@ -27,6 +28,7 @@ export default function Home() {
   const { pageInformation } = useContext(Context);
   const { hero, textHighlight, communityOwner, groups, testimonials, faqs } =
     pageInformation;
+  const communityDescriptions = pageInformation["community Descriptions"];
   const { socialMediaLinks } = communityOwner;
 
   return (
@@ -74,6 +76,13 @@ export default function Home() {
           </Title>
         </Container>
       </Box>
+      {communityDescriptions.length > 0 && (
+        <Container mt={100}>
+          <CommunityDescriptionsList
+            communityDescriptions={communityDescriptions}
+          />
+        </Container>
+      )}
       <Container>
         <Group
           spacing="xl"
