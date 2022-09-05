@@ -31,6 +31,7 @@ const AscentColorPicker = () => {
 
   const swatches = colors.map(color => (
     <Tooltip
+      key={color}
       label={color}
       withArrow
       styles={theme => ({
@@ -39,7 +40,6 @@ const AscentColorPicker = () => {
     >
       <ColorSwatch
         component="button"
-        key={color}
         sx={{ color: "#fff", cursor: "pointer" }}
         color={theme.colors[color][6]}
         onClick={() => setCheckedColor(color)}
