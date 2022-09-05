@@ -1,4 +1,5 @@
 {
+  "primaryColor": "violet",
   "header": {
     "communityName": "Coder's Hive",
     "communityLogo": "/sample-logo.jpg",
@@ -10,9 +11,7 @@
     "heroDescriptionText": "This is the description text. This is the description text. This is the description text. "
   },
   "textHighlight": {
-    "textHighlightContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing el.",
-    "textHighlightBackgroundColor": "#A635FF",
-    "textHighLightColor": "#fff"
+    "textHighlightContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing el."
   },
   "community Descriptions": [
     {
@@ -72,12 +71,6 @@
       "testimonialName": "Randall Hunt",
       "testimonialCompany": "company/college",
       "testinmonialImage": "https://randomuser.me/api/portraits/men/81.jpg"
-    },
-    {
-      "testimonialContent": "this is testimonial content",
-      "testimonialName": "Joyce Lowe",
-      "testimonialCompany": "company/college",
-      "testinmonialImage": "https://randomuser.me/api/portraits/women/45.jpg"
     }
   ],
   "faqs": [

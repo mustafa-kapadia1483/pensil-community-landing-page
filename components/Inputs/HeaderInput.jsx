@@ -31,7 +31,6 @@ const HeaderInput = () => {
           value={logoValue}
           onChange={setLogoValue}
         />
-        {/* {logoValue && <img src={URL.createObjectURL(logoValue)} />} */}
       </Grid.Col>
       <Grid.Col span={6}>
         <TextInput

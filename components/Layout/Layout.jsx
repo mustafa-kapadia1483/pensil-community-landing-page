@@ -27,77 +27,10 @@ import {
   Sun,
   LetterCase,
 } from "tabler-icons-react";
-
-import { Context } from "../state/Context";
-import HeaderInput from "./Inputs/HeaderInput";
-import HeroInput from "./Inputs/HeroInput";
-import TextHighlightInput from "./Inputs/TextHighlightInput";
-import CommunityOwnerInput from "./Inputs/CommunityOwnerInput";
-import InputList from "./Inputs/InputList";
-import TestimonialInput from "./Inputs/TestimonialInput";
-import FaqInput from "./Inputs/FaqInput";
-import GroupInput from "./Inputs/GroupInput";
 import { showNotification } from "@mantine/notifications";
-import CommunityDescriptionInput from "./Inputs/CommunityDescriptionInput";
 
-const inputArray = [
-  {
-    name: "header",
-    component: <HeaderInput />,
-  },
-  {
-    name: "hero",
-    component: <HeroInput />,
-  },
-  {
-    name: "text highlight",
-    component: <TextHighlightInput />,
-  },
-  {
-    name: "community descriptions",
-    component: (
-      <InputList
-        listName="community Descriptions"
-        InputComponent={CommunityDescriptionInput}
-        IconComponent={LetterCase}
-      />
-    ),
-  },
-  {
-    name: "community owner",
-    component: <CommunityOwnerInput />,
-  },
-  {
-    name: "groups",
-    component: (
-      <InputList
-        listName="groups"
-        InputComponent={GroupInput}
-        IconComponent={Users}
-      />
-    ),
-  },
-  {
-    name: "testimonials",
-    component: (
-      <InputList
-        listName="testimonials"
-        InputComponent={TestimonialInput}
-        IconComponent={Blockquote}
-      />
-    ),
-  },
-  {
-    name: "faqs",
-    component: (
-      <InputList
-        listName="faqs"
-        InputComponent={FaqInput}
-        IconComponent={ZoomQuestion}
-      />
-    ),
-  },
-];
+import { Context } from "../../state/Context";
+import NavbarInputs from "./NavbarInputs";
 
 export default function Layout({ children }) {
   const theme = useMantineTheme();
@@ -120,6 +53,9 @@ export default function Layout({ children }) {
       },
       icon: <Eye />,
       autoClose: false,
+      styles: {
+        icon: { backgroundColor: theme.colors[theme.primaryColor][6] },
+      },
     });
   };
 
@@ -175,19 +111,14 @@ export default function Layout({ children }) {
                 </ActionIcon>
               </Group>
               <Space h="md" />
-              {inputArray.map(({ name, component }) => (
-                <Accordion key={name}>
-                  <Accordion.Item value={name}>
-                    <Accordion.Control style={{ textTransform: "capitalize" }}>
-                      {name}
-                    </Accordion.Control>
-                    <Accordion.Panel>{component}</Accordion.Panel>
-                  </Accordion.Item>
-                </Accordion>
-              ))}
+              <NavbarInputs />
             </Box>
             <Group position="center" mt={16}>
-              <Button leftIcon={<Eye size={20} />} onClick={previewHandler}>
+              <Button
+                color="gray.8"
+                leftIcon={<Eye size={20} />}
+                onClick={previewHandler}
+              >
                 Preview
               </Button>
               <Button
@@ -206,11 +137,6 @@ export default function Layout({ children }) {
           </Navbar.Section>
         </Navbar>
       }
-      // footer={
-      //   <Footer height={60} p="md">
-      //     Application footer
-      //   </Footer>
-      // }
       header={
         <Header height={70} p="md">
           <div
@@ -233,11 +159,7 @@ export default function Layout({ children }) {
                 />
                 <Text>{pageInformation.header.communityName}</Text>
               </Group>
-              <Button
-                radius="xl"
-                px={30}
-                style={{ backgroundColor: "#A635FF" }}
-              >
+              <Button radius="xl" px={30}>
                 {pageInformation.header.headerButtonText}
               </Button>
             </Group>

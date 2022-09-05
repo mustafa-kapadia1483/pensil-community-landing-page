@@ -9,19 +9,16 @@ import {
   ActionIcon,
   Container,
   Stack,
+  Card,
 } from "@mantine/core";
 import Head from "next/head";
 import { useContext } from "react";
-import {
-  BrandFacebook,
-  BrandInstagram,
-  BrandLinkedin,
-  BrandYoutube,
-} from "tabler-icons-react";
-import CommunityDescriptionsList from "../components/ui/communityDescriptions/CommunityDescriptionsList";
+import CommunityDescriptionsList from "../components/ui/community-descriptons/CommunityDescriptionsList";
+import CommunityOwnerCard from "../components/ui/community-owner/CommunityOwnerCard";
 import FaqList from "../components/ui/faqs/FaqList";
 import GroupList from "../components/ui/groups/GroupList";
 import TestimonialList from "../components/ui/testimonials/TestimonialList";
+import TextHighlight from "../components/ui/text-highlight/TextHighlight";
 import { Context } from "../state/Context";
 
 export default function Home() {
@@ -29,7 +26,6 @@ export default function Home() {
   const { hero, textHighlight, communityOwner, groups, testimonials, faqs } =
     pageInformation;
   const communityDescriptions = pageInformation["community Descriptions"];
-  const { socialMediaLinks } = communityOwner;
 
   return (
     <>
@@ -59,23 +55,7 @@ export default function Home() {
         </Center>
         <Image src={hero.heroImageURL} alt="hero image" />
       </Container>
-      <Box
-        mt={100}
-        py={70}
-        style={{ backgroundColor: textHighlight.textHighlightBackgroundColor }}
-      >
-        <Container>
-          <Title
-            color={textHighlight.textHighLightColor}
-            order={2}
-            align="center"
-            mx="auto"
-            style={{ maxWidth: "85%" }}
-          >
-            {textHighlight.textHighlightContent}
-          </Title>
-        </Container>
-      </Box>
+      <TextHighlight mt={100} py={70} textHighlight={textHighlight} />
       {communityDescriptions.length > 0 && (
         <Container mt={100}>
           <CommunityDescriptionsList
@@ -83,99 +63,18 @@ export default function Home() {
           />
         </Container>
       )}
-      <Container>
-        <Group
-          spacing="xl"
-          mt={100}
-          py={50}
-          position="center"
-          style={{
-            borderRadius: "8px",
-            boxShadow: "0px 0px 8px 5px rgba(0, 0, 0, 0.1)",
-            width: "100%",
-          }}
-        >
-          <img
-            src={communityOwner.communityOwnerImage}
-            alt="community owner image"
-            style={{
-              aspectRatio: "1 / 1",
-              width: "30%",
-              borderRadius: "50%",
-              overflow: "hidden",
-              objectFit: "cover",
-            }}
-          />
-          <Stack
-            sx={{
-              "@media (max-width: 780px)": {
-                textAlign: "center",
-                paddingInline: "1.25em",
-              },
-            }}
-          >
-            <Title order={3}>{communityOwner.communityOwnerName}</Title>
-            <Text style={{ maxWidth: "30em" }}>
-              {communityOwner.communityOwnerBio}
-            </Text>
-            <Group
-              sx={{
-                "@media (max-width: 780px)": {
-                  justifyContent: "center",
-                },
-              }}
-            >
-              <ActionIcon
-                variant="filled"
-                style={{
-                  borderRadius: "50%",
-                  background: "#1877F2",
-                }}
-                component="a"
-                href={socialMediaLinks.facebookLink}
-              >
-                <BrandFacebook />
-              </ActionIcon>
-              <ActionIcon
-                variant="filled"
-                style={{
-                  borderRadius: "50%",
-                  background:
-                    "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)",
-                }}
-                component="a"
-                href={socialMediaLinks.instagramLink}
-              >
-                <BrandInstagram />
-              </ActionIcon>
-              <ActionIcon
-                variant="filled"
-                style={{
-                  borderRadius: "50%",
-                  background: "#FF0000",
-                }}
-                component="a"
-                href={socialMediaLinks.youtubeChannelLink}
-              >
-                <BrandYoutube />
-              </ActionIcon>
-              <ActionIcon
-                variant="filled"
-                style={{
-                  borderRadius: "50%",
-                  background: "#2867B2",
-                }}
-                component="a"
-                href={socialMediaLinks.linkedinLink}
-              >
-                <BrandLinkedin />
-              </ActionIcon>
-            </Group>
-          </Stack>
-        </Group>
+      <Container mt={100}>
+        <CommunityOwnerCard communityOwner={communityOwner} />
       </Container>
       {groups.length > 0 && (
-        <Box mt={100} sx={{ backgroundColor: "#8F00FF" }} pt={50} pb={86}>
+        <Box
+          mt={100}
+          sx={theme => ({
+            backgroundColor: theme.colors[theme.primaryColor][6],
+          })}
+          pt={50}
+          pb={86}
+        >
           <Title color="white" align="center" mb={36}>
             Groups
           </Title>

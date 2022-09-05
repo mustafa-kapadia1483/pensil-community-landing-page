@@ -4,17 +4,22 @@ import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/700.css";
 import "@fontsource/montserrat/800.css";
 
+import pageInformation from "../pageInformation.json";
 import { ContextProvider } from "../state/Context";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import { NotificationsProvider } from "@mantine/notifications";
 import { useState } from "react";
 
 function MyApp({ Component, pageProps }) {
   const [colorScheme, setColorScheme] = useState("dark");
+  const [primaryColor, setPrimaryColor] = useState(
+    pageInformation.primaryColor
+  );
   const toggleColorScheme = value =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
   const theme = {
+    primaryColor,
     colorScheme,
     fontFamily: "Montserrat, sans-serif",
     headings: { fontFamily: "Montserrat, sans-serif" },
@@ -65,7 +70,7 @@ function MyApp({ Component, pageProps }) {
     >
       <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
         <NotificationsProvider>
-          <ContextProvider>
+          <ContextProvider setPrimaryColor={setPrimaryColor}>
             <Layout>
               <Component {...pageProps} />
             </Layout>
