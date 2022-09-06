@@ -1,0 +1,98 @@
+{
+  "primaryColor": "violet",
+  "header": {
+    "communityName": "Coder's Hive",
+    "communityLogo": "/sample-logo.jpg",
+    "headerButtonText": "LOG IN"
+  },
+  "hero": {
+    "heroImageURL": "/sample-logo.jpg",
+    "heroCtaText": "Get Started >",
+    "heroDescriptionText": "This is the description text. This is the description text. This is the description text. "
+  },
+  "textHighlight": {
+    "textHighlightContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing el."
+  },
+  "community Descriptions": [
+    {
+      "communityDescriptionTitle": "Immersive Experince",
+      "communityDescriptionPointer": "Conduct Live sessions or webinar, get the best audio video quality"
+    },
+    {
+      "communityDescriptionTitle": "Events with Live QnA",
+      "communityDescriptionPointer": "Invite hosts, moderator & get the best live experience for your commmunity"
+    },
+    {
+      "communityDescriptionTitle": "Live recordings",
+      "communityDescriptionPointer": "Share or post recording on Youtube, Facebook, Vimeo, or any other platform"
+    }
+  ],
+  "communityOwner": {
+    "communityOwnerName": "Mustafa Kapadia",
+    "communityOwnerImage": "/sample-logo.jpg",
+    "communityOwnerBio": "Lorem ipsum dolor sit amet, consectetur sed do adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore Ut enim ad minim veniam.quis nostrud exercitation ullamco laboris nisi ",
+    "socialMediaLinks": {
+      "youtubeChannelLink": "https://www.youtube.com/c/MKTV-1483",
+      "instagramLink": "https://www.instagram.com/instagram/",
+      "facebookLink": "https://www.facebook.com/",
+      "linkedinLink": "https://www.linkedin.com/in/mustafa-kapadia/"
+    },
+    "youtubeVideoLinl": "https://www.youtube.com/watch?v=7y1MaGugD1U"
+  },
+  "groups": [
+    {
+      "groupThumbnail": "/sample-logo.jpg",
+      "groupName": "Group Name",
+      "groupDescription": "This is group description"
+    },
+    {
+      "groupThumbnail": "/sample-logo.jpg",
+      "groupName": "Group Name",
+      "groupDescription": "This is group description"
+    },
+    {
+      "groupThumbnail": "/sample-logo.jpg",
+      "groupName": "Group Name",
+      "groupDescription": "This is group description"
+    },
+    {
+      "groupThumbnail": "/sample-logo.jpg",
+      "groupName": "Group Name",
+      "groupDescription": "This is group description"
+    }
+  ],
+  "testimonials": [
+    {
+      "testimonialContent": "this is testimonial content",
+      "testimonialName": "Erika Morales",
+      "testimonialCompany": "company/college",
+      "testinmonialImage": "https://randomuser.me/api/portraits/women/63.jpg"
+    },
+    {
+      "testimonialContent": "this is testimonial content",
+      "testimonialName": "Patrick Myers",
+      "testimonialCompany": "company/college",
+      "testinmonialImage": "https://randomuser.me/api/portraits/men/41.jpg"
+    },
+    {
+      "testimonialContent": "this is testimonial content",
+      "testimonialName": "Randall Hunt",
+      "testimonialCompany": "company/college",
+      "testinmonialImage": "https://randomuser.me/api/portraits/men/81.jpg"
+    }
+  ],
+  "faqs": [
+    {
+      "faqQuestion": "What is the full form of FAQ ?",
+      "faqAnswer": "Frequently Asked Question"
+    },
+    {
+      "faqQuestion": "This is a Question ?",
+      "faqAnswer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur"
+    },
+    {
+      "faqQuestion": "This is a Question 2 ?",
+      "faqAnswer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur"
+    }
+  ]
+}
