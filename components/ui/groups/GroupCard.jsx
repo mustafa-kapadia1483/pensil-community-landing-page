@@ -37,7 +37,7 @@ const GroupCard = ({
       <Card.Section>
         <Image height={160} src={groupThumbnail} alt={groupName + "image"} />
       </Card.Section>
-      <Title order={4} mt={16}>
+      <Title order={4} mt={16} color={theme.colors[theme.primaryColor][6]}>
         {groupName}
       </Title>
       <Text>{groupDescription}</Text>

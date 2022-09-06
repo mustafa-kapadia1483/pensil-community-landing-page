@@ -10,8 +10,13 @@ const FaqList = ({ faqs }) => {
       radius="lg"
       styles={theme => ({
         item: {
-          boxShadow: "0px 0px 8px 5px rgba(0, 0, 0, 0.1)",
-          background: theme.colorScheme === "dark" ? "#1e1e1e" : "#fff",
+          boxShadow: theme.shadows.sm,
+          "&[data-active]": {
+            "& h2 button div + div": {
+              color: theme.colors[theme.primaryColor][6],
+            },
+          },
+          // background: theme.colorScheme === "dark" ? "#1e1e1e" : "#fff",
         },
         label: {
           fontWeight: "bold",
@@ -19,12 +24,13 @@ const FaqList = ({ faqs }) => {
         chevron: {
           "&[data-rotate]": {
             transform: "rotate(45deg)",
+            color: theme.colors[theme.primaryColor][6],
           },
         },
       })}
       variant="separated"
       chevronPosition="left"
-      chevron={<Plus size={16} />}
+      chevron={<Plus size={20} />}
     >
       {faqs.map(({ faqQuestion, faqAnswer }, index) => (
         <Accordion.Item

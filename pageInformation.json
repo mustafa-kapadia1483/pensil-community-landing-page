@@ -7,7 +7,7 @@
   },
   "hero": {
     "heroImageURL": "/sample-logo.jpg",
-    "heroCtaText": "Get Started >",
+    "heroCtaText": "Get Started",
     "heroDescriptionText": "This is the description text. This is the description text. This is the description text. "
   },
   "textHighlight": {

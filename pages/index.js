@@ -13,6 +13,7 @@ import {
 } from "@mantine/core";
 import Head from "next/head";
 import { useContext } from "react";
+import { ChevronRight } from "tabler-icons-react";
 import CommunityDescriptionsList from "../components/ui/community-descriptons/CommunityDescriptionsList";
 import CommunityOwnerCard from "../components/ui/community-owner/CommunityOwnerCard";
 import FaqList from "../components/ui/faqs/FaqList";
@@ -49,7 +50,34 @@ export default function Home() {
           {hero.heroDescriptionText}
         </Title>
         <Center>
-          <Button variant="subtle" size="xl" mb={10} color="#A635FF">
+          <Button
+            variant="subtle"
+            size="xl"
+            mb={10}
+            color="#A635FF"
+            styles={theme => ({
+              root: {
+                // "&:hover": {
+                //   marginRight: theme.spacing.sm,
+                //   transform: "translateX(10px)",
+                // },
+                transition: "all 0.2s ease-in",
+                "& svg": {
+                  transition: "all 0.2s ease-in",
+                },
+                "&:hover": {
+                  transform: "translateX(-5px)",
+                  "& svg": {
+                    transform: "translateX(5px) scale(1.1)",
+                  },
+                },
+              },
+              rightIcon: {
+                marginLeft: 2,
+              },
+            })}
+            rightIcon={<ChevronRight size={30} />}
+          >
             {hero.heroCtaText}
           </Button>
         </Center>
